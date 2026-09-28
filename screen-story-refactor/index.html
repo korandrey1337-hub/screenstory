@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="description" content="Интерактивная хоррор-история в виде старого рабочего стола." />
+<title>По ту сторону экрана</title>
+<link rel="icon" href="data:," />
+<link rel="preload" href="assets/story/wall1.jpg" as="image" />
+<link rel="prefetch" href="assets/story/wall2.jpg" as="image" />
+<link rel="prefetch" href="assets/story/wall3.jpg" as="image" />
+<link rel="prefetch" href="assets/story/scare.jpg" as="image" />
+<link rel="prefetch" href="assets/story/scare2.jpg" as="image" />
+<link rel="prefetch" href="assets/story/scare3.jpg" as="image" />
+<link rel="prefetch" href="assets/story/webcam.jpg" as="image" />
+<link rel="prefetch" href="assets/story/final.jpg" as="image" />
+<link rel="stylesheet" href="styles/main.css" />
+<script src="js/sounds.js" defer></script>
+<script src="js/windows.js" defer></script>
+<script src="js/bgm.js" defer></script>
+<script src="js/email.js" defer></script>
+<script src="js/folders.js" defer></script>
+<script src="js/storyData.js" defer></script>
+<script src="js/storyEngine.js" defer></script>
+<script src="js/minigame.js" defer></script>
+<script src="js/mobile.js" defer></script>
+<script src="js/desktop.js" defer></script>
+<script src="js/tg.js" defer></script>
+</head>
+<body>
+  <div id="boot-screen">
+    <div class="boot-inner">
+      <div class="boot-logo" style="font-size:34px">ПО ТУ СТОРОНУ ЭКРАНА</div>
+      <div class="boot-text" id="boot-text">Запуск системы...</div>
+      <button id="power-btn">▶ ВКЛЮЧИТЬ КОМПЬЮТЕР</button>
+    </div>
+  </div>
+
+  <div id="desktop" class="hidden">
+    <div class="desktop-icons" id="desktop-icons">
+      <div class="icon" data-app="game" tabindex="0"><div class="app-icon">🎮</div><div class="icon-label">Онлайн-игра</div></div>
+      <div class="icon" data-app="chat" tabindex="0"><div class="app-icon">💬</div><div class="icon-label">Мессенджер</div></div>
+      <div class="icon" data-app="mail" tabindex="0"><div class="app-icon">📧</div><div class="icon-label">Почта</div></div>
+      <div class="icon" data-folder="music" tabindex="0"><div class="folder-icon"></div><div class="icon-label">Музыка</div></div>
+      <div class="icon" data-folder="notouch" tabindex="0"><div class="folder-icon"></div><div class="icon-label">Не трогать</div></div>
+      <div class="icon" data-folder="secrets" tabindex="0"><div class="folder-icon"></div><div class="icon-label">Секретики</div></div>
+    </div>
+    <div id="windows-layer"></div>
+    <div id="taskbar">
+      <div class="start-btn"><span class="start-logo">▣</span> Пуск</div>
+      <div id="taskbar-items"></div>
+      <div class="clock" id="clock">00:00</div>
+    </div>
+  </div>
+
+  <div id="crt-overlay">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <div class="flicker"></div>
+    <div class="vignette"></div>
+  </div>
+</body>
+</html>
