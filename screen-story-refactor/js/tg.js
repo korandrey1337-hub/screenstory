@@ -32,6 +32,7 @@
   }
 
   function sendGameProgress(event, progress) {
+    if (window.Hub?.inHub) return false;
     const tg = window.Telegram && window.Telegram.WebApp;
     if (!tg || !tg.sendData || progressSent) return false;
     const payload = {

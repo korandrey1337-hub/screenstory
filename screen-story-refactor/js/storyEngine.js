@@ -18,7 +18,7 @@ const Story = (function () {
     knock:   "assets/story/sfx_knock.mp3"
   };
 
-  function start() { idx = -1; advance(); }
+  function start() { idx = -1; window.ScreenStoryHub?.start(); advance(); }
 
   function closePopup() {
     if (!popup) return;
@@ -36,6 +36,7 @@ const Story = (function () {
   function render(b) {
     if ((b.t === "scene" || b.t === "msg" || b.t === "narr") && !chatReady()) return waitChat(b);
     if (b.t === "scene" || b.t === "msg" || b.t === "narr") markChatReady();
+    window.ScreenStoryHub?.beat(b);
     switch (b.t) {
       case "intro":    return introScreen(b);
       case "day":      return dayCard(b);
@@ -712,6 +713,7 @@ const Story = (function () {
 
   /* ---------- Финал: символы + глитчи (без крови) ---------- */
   function reportGameComplete() {
+    window.ScreenStoryHub?.complete();
     try {
       if (window.ScreenStoryTG && typeof window.ScreenStoryTG.sendComplete === "function") {
         window.ScreenStoryTG.sendComplete();
